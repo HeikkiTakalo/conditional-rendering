@@ -7,11 +7,17 @@ function App() {
   const buttonText = login ? 'logout' : 'login'
 
   function loginPressed(){
-    setLogin(true)
+    setLogin(!login)
+  }
+
+  function usernameChanged(event){
+    setUsername(event.target.value)
   }
 
   return (
     <>
+      <h3>Welcome</h3>
+      <input value={username} onChange={usernameChanged}/>
       <button onClick={loginPressed}>{buttonText}</button>
     </>
   )
