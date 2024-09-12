@@ -1,19 +1,18 @@
-import { useRef, useState } from 'react'
-import './App.css'
+import { useState } from 'react'
 
 function App() {
 
- const [text, setText] = useState('')
+  const [login, setLogin] = useState(false)
 
- function changed(event){
-  setText(event.target.value);
- }
+  const buttonText = login ? 'logout' : 'login'
 
- const invalid = isNaN(text) && text.length > 0 ? 'invalid' : '';
+  function loginPressed(){
+    setLogin(true)
+  }
 
   return (
     <>
-      <input className={invalid} value={text} onChange={changed} />
+      <button onClick={loginPressed}>{buttonText}</button>
     </>
   )
 }
